@@ -29,7 +29,7 @@ export default function About() {
             quality checks are strict to guidelines and quality standards set by
             us based on material strength, fabrication process, galvanization
             process and more factors. Being the most trusted fabrication shop in
-            Indore, Fabrication World has redefined the processes of Iron
+            Pune, Fabrication World has redefined the processes of Iron
             Fabrication and Metal Fabrication.
           </p>
         </div>

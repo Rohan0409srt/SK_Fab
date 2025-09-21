@@ -30,7 +30,7 @@ export default function Footer() {
         <div className="footer-contact">
           <h4>Contact Us</h4>
           <p>📍 Pimple Nilakh, Pune, India</p>
-          <p>📞 +91 98765 43210</p>
+          <p>📞 +91 9284163341</p>
           <p>✉️ info@skfab.com</p>
         </div>
 

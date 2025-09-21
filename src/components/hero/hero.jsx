@@ -1,15 +1,14 @@
-// src/components/Hero.jsx
 import { useState, useEffect } from "react";
 import "../hero/hero.css";
 import hero1 from "../../assets/image/hero1.webp";
 import hero2 from "../../assets/image/hero2.webp";
 import hero3 from "../../assets/image/hero3.jpg";
 
-
 const images = [hero1, hero2, hero3];
 
 export default function Hero() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [showForm, setShowForm] = useState(false); // ✅ state for form modal
 
   // Auto slide every 4 seconds
   useEffect(() => {
@@ -40,11 +39,31 @@ export default function Hero() {
             Welcome to <span>SK_Fab</span>
           </h1>
           <p>Engineering Excellence, Built for You</p>
-          <a href="/contact" className="hero-btn">
+
+          {/* ✅ Button opens modal */}
+          <button className="hero-btn" onClick={() => setShowForm(true)}>
             Get in Touch
-          </a>
+          </button>
         </div>
       </div>
+
+      {/* ✅ Contact Form Modal */}
+      {showForm && (
+        <div className="modal-overlay">
+          <div className="modal">
+            <button className="close-btn" onClick={() => setShowForm(false)}>
+              ✖
+            </button>
+            <h2>Contact Us</h2>
+            <form className="contact-form">
+              <input type="text" placeholder="Your Name" required />
+              <input type="email" placeholder="Your Email" required />
+              <textarea placeholder="Your Message" rows="4" required></textarea>
+              <button type="submit">Send Message</button>
+            </form>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

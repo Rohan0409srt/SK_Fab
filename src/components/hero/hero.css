@@ -1,11 +1,11 @@
 .hero {
-  height: 100vh; /* full viewport height */
-  width: 100vw;  /* full viewport width */
+  height: 100vh;
+  width: 100vw;
   position: relative;
   overflow: hidden;
 }
 
-/* Slider wrapper */
+/* ===== Slider ===== */
 .hero-slider {
   position: absolute;
   top: 0;
@@ -13,26 +13,24 @@
   width: 100%;
   height: 100%;
 }
-
 .slide {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-size: cover;       /* scale to cover full area */
-  background-position: center;  /* center the image */
-  background-repeat: no-repeat; /* prevent tiling */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   opacity: 0;
   transition: opacity 1s ease-in-out;
 }
-
 .slide.active {
   opacity: 1;
   z-index: 1;
 }
 
-/* Dark overlay to make text readable */
+/* ===== Overlay ===== */
 .hero-overlay {
   position: relative;
   z-index: 2;
@@ -45,27 +43,22 @@
   text-align: center;
   padding: 20px;
 }
-
 .hero-content {
   color: white;
   max-width: 800px;
 }
-
 .hero-content h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
   line-height: 1.2;
 }
-
 .hero-content h1 span {
-  color: #2563eb; /* blue highlight */
+  color: #2563eb;
 }
-
 .hero-content p {
   font-size: 1.25rem;
   margin-bottom: 2rem;
 }
-
 .hero-btn {
   display: inline-block;
   padding: 12px 28px;
@@ -76,57 +69,114 @@
   text-decoration: none;
   transition: background 0.3s ease-in-out;
 }
-
 .hero-btn:hover {
   background: #1e40af;
 }
 
-/* 📱 Mobile (up to 640px) */
+/* ===== Modal Overlay ===== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+/* ===== Modal Box ===== */
+.modal {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  animation: fadeIn 0.3s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+.contact-form button {
+  background: blue;
+  color: #fff;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.contact-form button:hover {
+  background: darkblue;
+}
+
+/* ===== Responsive Breakpoints ===== */
 @media (max-width: 640px) {
   .hero {
     height: 90vh;
   }
-
   .hero-content h1 {
     font-size: 1.75rem;
   }
-
   .hero-content p {
     font-size: 0.95rem;
   }
-
   .hero-btn {
     padding: 10px 20px;
     font-size: 0.9rem;
   }
 }
 
-/* 📲 Tablet (641px – 1024px) */
 @media (min-width: 641px) and (max-width: 1024px) {
   .hero-content h1 {
     font-size: 2.5rem;
   }
-
   .hero-content p {
     font-size: 1.1rem;
   }
-
   .hero-btn {
     padding: 12px 24px;
     font-size: 1rem;
   }
 }
 
-/* 💻 Desktop (1025px and up) */
 @media (min-width: 1025px) {
   .hero-content h1 {
     font-size: 3.5rem;
   }
-
   .hero-content p {
     font-size: 1.25rem;
   }
-
   .hero-btn {
     font-size: 1.1rem;
   }

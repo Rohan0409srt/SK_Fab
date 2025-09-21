@@ -1,0 +1,86 @@
+/* About Page Container */
+.about-page {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 4rem 2rem;        /* Added padding for breathing space */
+  min-height: 80vh;
+  background: #fff;
+  width: 100%;               /* Full width */
+  max-width: 1500px;         /* Prevents extremely wide layouts */
+  margin: 0 auto;            /* Center the container */
+  box-sizing: border-box;
+  flex-wrap: wrap;           /* Allows items to wrap on small screens */
+}
+
+/* About Page Image */
+.about-page img {
+  flex: 1 1 45%;             /* Flexible width */
+  max-width: 500px;
+  border-radius: 12px;
+  object-fit: cover;
+  min-width: 250px;          /* Ensures image doesn't shrink too small */
+}
+
+/* About Page Text */
+.about-text {
+  flex: 1 1 50%;
+  color: #333;
+  line-height: 1.6;
+  max-width: 600px;
+  min-width: 250px;
+}
+
+/* Headings */
+.about-text h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+/* Paragraphs */
+.about-text p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #444;
+}
+
+/* Responsive Layout */
+@media (max-width: 1024px) {
+  .about-page {
+    gap: 1.5rem;
+    padding: 3rem 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-page {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+
+  .about-page img,
+  .about-text {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .about-text h1 {
+    font-size: 2rem;
+  }
+
+  .about-text p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-text h1 {
+    font-size: 1.8rem;
+  }
+
+  .about-text p {
+    font-size: 0.9rem;
+  }
+}
