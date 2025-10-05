@@ -3,7 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://Rohan0409srt.github.io/SK_Fab","scripts": {
+  "homepage": "https://Rohan0409srt.github.io/SK_Fab",
+  "scripts": {
   "start": "vite --open",
   "dev": "vite --open",
   "build": "vite build",
