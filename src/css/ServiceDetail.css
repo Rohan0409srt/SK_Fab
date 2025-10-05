@@ -1,0 +1,58 @@
+.service-detail {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+.service-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.service-header h1 {
+  font-size: 2.5rem;
+  color: #2563eb;
+}
+
+.service-header p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.gallery img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.service-info h2,
+.service-info h3 {
+  margin-top: 1.5rem;
+  color: #333;
+}
+
+.service-info p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.service-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.service-info li {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  color: #444;
+}

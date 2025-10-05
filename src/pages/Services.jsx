@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "../css/Services.css";
 
 import gateImg from "../assets/image/iron-gate1.jpg";
@@ -11,14 +12,14 @@ import artificialImg from "../assets/image/artificial_football_ground.jpg";
 import grillImg from "../assets/image/grill_and_window.jpg";
 
 const servicesData = [
-  { title: "Iron Gates", img: gateImg, desc: "Durable, stylish, and secure gates tailored for homes and industries." },
-  { title: "Staircase Railings", img: railingImg, desc: "Elegant railings designed with safety and aesthetics in mind." },
-  { title: "Boundary Walls", img: wallImg, desc: "Strong and modern wall solutions to safeguard your premises." },
-  { title: "Roofing Shades", img: roofingImg, desc: "High-quality shade structures for industrial and residential needs." },
-  { title: "Box Cricket Grounds", img: cricketImg, desc: "Custom-built box cricket setups with safe enclosures." },
-  { title: "Box Football Grounds", img: footballImg, desc: "Well-designed football boxes for safe and engaging play." },
-  { title: "Artificial Football Grounds", img: artificialImg, desc: "Premium turf installations for professional and recreational use." },
-  { title: "Grills & Windows", img: grillImg, desc: "Stylish, protective grills and window designs for homes and offices." },
+  { id: "iron-gates", title: "Iron Gates", img: gateImg, desc: "Durable, stylish, and secure gates tailored for homes and industries." },
+  { id: "staircase-railings", title: "Staircase Railings", img: railingImg, desc: "Elegant railings designed with safety and aesthetics in mind." },
+  { id: "boundary-walls", title: "Boundary Walls", img: wallImg, desc: "Strong and modern wall solutions to safeguard your premises." },
+  { id: "roofing-shades", title: "Roofing Shades", img: roofingImg, desc: "High-quality shade structures for industrial and residential needs." },
+  { id: "box-cricket-grounds", title: "Box Cricket Grounds", img: cricketImg, desc: "Custom-built box cricket setups with safe enclosures." },
+  { id: "box-football-grounds", title: "Box Football Grounds", img: footballImg, desc: "Well-designed football boxes for safe and engaging play." },
+  { id: "artificial-football-grounds", title: "Artificial Football Grounds", img: artificialImg, desc: "Premium turf installations for professional and recreational use." },
+  { id: "grills-windows", title: "Grills & Windows", img: grillImg, desc: "Stylish, protective grills and window designs for homes and offices." },
 ];
 
 export default function Services() {
@@ -37,36 +38,46 @@ export default function Services() {
   }, []);
 
   useEffect(() => {
+    setCurrentIndex(0); // Reset index when cardsPerView changes
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % (servicesData.length - cardsPerView + 1));
+      setCurrentIndex((prev) =>
+        (prev + 1) % (servicesData.length - cardsPerView + 1)
+      );
     }, 3000);
     return () => clearInterval(interval);
   }, [cardsPerView]);
 
   return (
     <section className="services" id="services">
-      <div className="services-container">
-        <h2>Our <span>Services</span></h2>
-        <div className="services-slider">
-          <div
-            className="services-track"
-            style={{ transform: `translateX(-${(currentIndex * 100) / cardsPerView}%)` }}
-          >
-            {servicesData.map((service, idx) => (
-              <div className="service-card" key={idx}>
-                <img src={service.img} alt={service.title} />
-                <h3>{service.title}</h3>
-                <p>{service.desc}</p>
-                <a
-                  href={`/services/${service.title.toLowerCase().replace(/\s+/g, "-")}`}
-                  className="read-more"
-                >
-                  Read More →
-                </a>
-              </div>
-            ))}
-          </div>
+      <h2>Our <span>Services</span></h2>
+      <div className="services-slider">
+        <div
+          className="services-track"
+          style={{ transform: `translateX(-${currentIndex * (100 / cardsPerView)}%)` }}
+        >
+          {servicesData.map((service) => (
+            <div className="service-card" key={service.id}>
+              <img src={service.img} alt={service.title} />
+              <h3>{service.title}</h3>
+              <p>{service.desc}</p>
+              <Link to={`/services/${service.id}`} className="read-more">
+                Read More →
+              </Link>
+            </div>
+          ))}
         </div>
+
+        {/* Arrows */}
+        <button className="arrow prev" onClick={() =>
+          setCurrentIndex((prev) =>
+            prev === 0 ? servicesData.length - cardsPerView : prev - 1
+          )
+        }>&#10094;</button>
+        <button className="arrow next" onClick={() =>
+          setCurrentIndex((prev) =>
+            (prev + 1) % (servicesData.length - cardsPerView + 1)
+          )
+        }>&#10095;</button>
       </div>
     </section>
   );

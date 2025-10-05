@@ -1,0 +1,143 @@
+.gallery-section {
+  padding: 80px 20px;
+  background: #f8f9fa;
+  text-align: center;
+}
+
+.gallery-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.gallery-section h2 span {
+  color: #d32f2f;
+}
+
+.gallery-section p {
+  color: #555;
+  margin-bottom: 40px;
+}
+
+/* 🖼️ Gallery Grid */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* ✅ 4 images per row on desktop */
+  gap: 16px;
+  justify-items: center;
+}
+
+/* Individual Image Card */
+.gallery-item {
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 280px;
+  background: #fff;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.07);
+}
+
+/* 🔍 Lightbox */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.lightbox-img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.close-btn,
+.prev-btn,
+.next-btn {
+  position: absolute;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2.5rem;
+  cursor: pointer;
+  padding: 10px;
+  transition: 0.3s;
+}
+
+.close-btn {
+  top: -40px;
+  right: 0;
+}
+
+.prev-btn {
+  left: -60px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.next-btn {
+  right: -60px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.close-btn:hover,
+.prev-btn:hover,
+.next-btn:hover {
+  color: #d32f2f;
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 1200px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 per row on large tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row on tablets */
+  }
+
+  .gallery-item img {
+    height: 180px;
+  }
+
+  .prev-btn,
+  .next-btn {
+    font-size: 2rem;
+    left: 10px;
+    right: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-grid {
+    grid-template-columns: 1fr; /* 1 per row on mobile */
+  }
+
+  .gallery-item img {
+    height: 160px;
+  }
+}

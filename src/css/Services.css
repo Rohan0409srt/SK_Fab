@@ -1,11 +1,14 @@
+/* ============================
+   Services Section
+============================ */
 .services {
-  padding: 50px 20px;
+  padding: clamp(30px, 5vw, 50px) 20px;
   background: #f9f9f9;
   text-align: center;
 }
 
 .services h2 {
-  font-size: 2.5rem;
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
   margin-bottom: 30px;
 }
 
@@ -13,36 +16,38 @@
   color: #007bff;
 }
 
-/* Slider container */
+/* ============================
+   Slider Container
+============================ */
 .services-slider {
-  overflow: hidden;
-  width: 100%;
   position: relative;
+  overflow: hidden;
+  margin-top: 30px;
 }
 
 .services-track {
   display: flex;
   transition: transform 0.7s ease-in-out;
-  width: 100%;
-}
-
-/* Each slide contains multiple cards */
-.slide {
-  display: flex;
-  justify-content: center;
-  flex: 0 0 100%; /* each slide takes full width */
   gap: 20px;
 }
 
-/* Individual cards */
+/* ============================
+   Cards
+============================ */
 .service-card {
   background: #fff;
   border-radius: 10px;
   padding: 20px;
-  flex: 1;
+  flex: 1 0 30%;
   min-width: 0;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 .service-card img {
@@ -69,44 +74,61 @@
   color: #007bff;
   text-decoration: none;
   font-weight: 500;
+  font-size: 0.95rem;
 }
 
-/* Slider dots */
-.slider-dots {
-  margin-top: 20px;
-}
-
-.dot {
-  height: 12px;
-  width: 12px;
-  margin: 0 5px;
-  display: inline-block;
-  background-color: #bbb;
+/* ============================
+   Arrows
+============================ */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
   border-radius: 50%;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  z-index: 10;
 }
 
-.dot.active {
-  background-color: #007bff;
+.arrow.prev { left: 10px; }
+.arrow.next { right: 10px; }
+
+/* ============================
+   Responsive
+============================ */
+@media (max-width: 1023px) {
+  .service-card {
+    flex: 1 0 45%; /* 2 cards per view */
+  }
 }
 
-/* Responsive */
 @media (max-width: 767px) {
-  .slide {
-    flex-direction: column;
+  .services {
+    padding: 30px 10px;
+  }
+
+  .services h2 {
+    font-size: 1.8rem;
+    margin-top: 1rem;
+  }
+
+  .services-track {
     gap: 15px;
   }
-}
 
-@media (min-width: 768px) and (max-width: 1023px) {
   .service-card {
-    flex: 1 0 45%; /* 2 cards per slide */
+    flex: 1 0 100%; /* 1 card per view */
+    padding: 15px;
   }
-}
 
-@media (min-width: 1024px) {
-  .service-card {
-    flex: 1 0 30%; /* 3 cards per slide */
+  .service-card img {
+    max-height: 150px;
+  }
+
+  .arrow {
+    padding: 8px 12px;
   }
 }

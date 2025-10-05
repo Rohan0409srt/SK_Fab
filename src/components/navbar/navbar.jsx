@@ -7,7 +7,6 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
-  // close mobile menu on navigation
   const handleNavClick = () => setOpen(false);
 
   return (
@@ -39,11 +38,16 @@ export default function Navbar() {
             <NavLink to="/services" className={({ isActive }) => isActive ? "navlink active" : "navlink"} onClick={handleNavClick}>
               Services
             </NavLink>
+
+            {/* 🖼️ New Gallery Link */}
+            <NavLink to="/gallery" className={({ isActive }) => isActive ? "navlink active" : "navlink"} onClick={handleNavClick}>
+              Gallery
+            </NavLink>
             <NavLink to="/contact" className={({ isActive }) => isActive ? "navlink active" : "navlink"} onClick={handleNavClick}>
               Contact
             </NavLink>
 
-            {/* Quotation Button */}
+            {/* 💬 Quotation Button */}
             <button className="quote-btn" onClick={() => setShowModal(true)}>
               Get a Quotation
             </button>
@@ -51,7 +55,7 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Quotation Modal */}
+      {/* 🧾 Quotation Modal */}
       {showModal && (
         <div className="modal-overlay" onClick={() => setShowModal(false)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -89,7 +93,9 @@ export default function Navbar() {
               </label>
               <div className="modal-buttons">
                 <button type="submit">Submit</button>
-                <button type="button" onClick={() => setShowModal(false)}>Close</button>
+                <button type="button" onClick={() => setShowModal(false)}>
+                  Close
+                </button>
               </div>
             </form>
           </div>

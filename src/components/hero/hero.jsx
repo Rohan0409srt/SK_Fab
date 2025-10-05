@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import "../hero/hero.css";
-import hero1 from "../../assets/image/hero1.webp";
-import hero2 from "../../assets/image/hero2.webp";
-import hero3 from "../../assets/image/hero3.jpg";
+import hero1 from "../../assets/image/h1.jpg";
+import hero2 from "../../assets/image/h2.jpg";
+import hero3 from "../../assets/image/h3.jpg";
 
 const images = [hero1, hero2, hero3];
 
@@ -36,7 +36,7 @@ export default function Hero() {
       <div className="hero-overlay">
         <div className="hero-content">
           <h1>
-            Welcome to <span>SK_Fab</span>
+            Welcome to <span>SK Fabrication & Welding Works</span>
           </h1>
           <p>Engineering Excellence, Built for You</p>
 

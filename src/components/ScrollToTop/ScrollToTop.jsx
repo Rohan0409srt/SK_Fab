@@ -4,8 +4,10 @@ import { useLocation } from "react-router-dom";
 
 export default function ScrollToTop() {
   const { pathname } = useLocation();
+
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    window.scrollTo(0, 0); // scroll to top whenever pathname changes
   }, [pathname]);
+
   return null;
 }
